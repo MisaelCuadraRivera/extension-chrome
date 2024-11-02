@@ -1,0 +1,46 @@
+{
+    "manifest_version": 3,
+    "name": "Prueba",
+    "version": "1.0",
+    "description": "Prueba de extensión",
+    "icons": {
+      "128": "icon128.png"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "oauth2": {
+      "client_id": "521240962261-9pqgv5fdjbs3khri28v1pn9jfctkhuhe.apps.googleusercontent.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/classroom.courses.readonly",
+        "https://www.googleapis.com/auth/classroom.coursework.me.readonly",
+        "https://www.googleapis.com/auth/classroom.coursework.me",
+        "https://www.googleapis.com/auth/classroom.courseworkmaterials",
+        "https://www.googleapis.com/auth/classroom.coursework.students"
+      ]
+    },
+    "permissions": [
+      "identity",
+      "scripting",
+      "storage",
+      "identity.email"
+    ],
+    "host_permissions": [
+      "https://*.googleapis.com/"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "libs/quill.js",
+          "libs/quill.snow.css",
+          "libs/pdf-lib.min.js",
+          "libs/docx.umd.js"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }
+  
