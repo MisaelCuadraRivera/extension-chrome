@@ -1,5 +1,3 @@
-// background.js
-
 // Función para iniciar la autenticación y obtener el token
 function authenticateUser(callback) {
     chrome.identity.getAuthToken({ interactive: true }, function (token) {

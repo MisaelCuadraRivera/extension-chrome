@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedCourse = null;
     let selectedTask = null;
 
-    // Inicializar Quill
     const quill = new Quill('#editor-container', {
         theme: 'snow',
         placeholder: 'Aquí aparecerá el contenido generado y podrás editarlo...',
@@ -75,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 courseItem.textContent = courseName;
                 courseItem.style.cursor = "pointer";
 
-                // Guardamos el objeto completo para obtener `id` luego
                 courseItem.addEventListener("click", () => {
                     selectedCourse = cursos[courseName];
                     displayTasks(selectedCourse);
@@ -102,9 +100,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 taskItem.style.cursor = "pointer";
     
                 taskItem.addEventListener("click", () => {
-                    selectedTask = task;  // Asignamos el objeto `task` completo
+                    selectedTask = task;  
                     highlightSelection(taskItem, taskList);
-                    console.log("Tarea seleccionada:", selectedTask); // Confirmamos estructura de selectedTask
+                    console.log("Tarea seleccionada:", selectedTask); 
                 });
     
                 taskList.appendChild(taskItem);
@@ -118,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         selectedElement.classList.add("selected");
     }
+    
 
     generarContenidoBtn.addEventListener("click", () => {
         if (selectedCourse && selectedTask) {
@@ -167,14 +166,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     entregarTareaBtn.addEventListener("click", async () => {
-        const contenido = quill.root.innerHTML; // Contenido editado
-        const formato = formatSelect.value; // Formato seleccionado
+        const contenido = quill.root.innerHTML;
+        const formato = formatSelect.value; 
     
         if (selectedTask) {
-            const courseId = selectedTask.courseId; // Obtenemos `courseId` directamente de `selectedTask`
-            const taskId = selectedTask.id; // Obtenemos `taskId` directamente de `selectedTask`
+            const courseId = selectedTask.courseId;
+            const taskId = selectedTask.id;
     
-            // Confirmamos en la consola que `courseId` y `taskId` estén definidos
             console.log("Datos enviados a background.js para entregar tarea:", {
                 courseId: courseId,
                 taskId: taskId,
